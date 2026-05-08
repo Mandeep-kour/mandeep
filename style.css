@@ -1,0 +1,539 @@
+/* ==========================================
+   CRYPTO SWAP WIDGET - PREMIUM WEB3 UI
+   ========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000000;
+    font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* ==========================================
+   CONTAINER & LAYOUT
+   ========================================== */
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.swap-widget {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* ==========================================
+   SWAP CARDS - MAIN STYLING
+   ========================================== */
+
+.swap-card {
+    background: linear-gradient(135deg, rgba(30, 30, 35, 0.8) 0%, rgba(20, 20, 25, 0.9) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 24px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.swap-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.swap-from {
+    margin-bottom: 60px;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.swap-to {
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.swap-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    background: linear-gradient(135deg, rgba(35, 35, 40, 0.85) 0%, rgba(25, 25, 30, 0.95) 100%);
+}
+
+/* ==========================================
+   CARD HEADER
+   ========================================== */
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.label {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+/* ==========================================
+   MAX BUTTON
+   ========================================== */
+
+.max-btn {
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    color: rgb(147, 197, 253);
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0);
+}
+
+.max-btn:hover {
+    background: rgba(59, 130, 246, 0.25);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    transform: translateY(-2px);
+}
+
+.max-btn:active {
+    transform: translateY(0);
+}
+
+/* ==========================================
+   CARD CONTENT
+   ========================================== */
+
+.card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 16px;
+    gap: 16px;
+}
+
+.amount-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.large-amount {
+    font-size: 36px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1;
+    letter-spacing: -0.5px;
+}
+
+.usd-value {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+}
+
+/* ==========================================
+   TOKEN SELECTOR PILL
+   ========================================== */
+
+.token-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.token-selector:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.token-selector:active {
+    transform: scale(0.98);
+}
+
+.token-selector i:last-child {
+    font-size: 12px;
+    opacity: 0.7;
+    transition: transform 0.3s ease;
+}
+
+.token-selector:hover i:last-child {
+    transform: rotate(180deg);
+}
+
+.token-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 14px;
+}
+
+.btc-icon {
+    background: rgba(255, 153, 0, 0.2);
+    color: #ff9900;
+}
+
+.eth-icon {
+    background: rgba(139, 92, 246, 0.2);
+    color: #8b5cf6;
+}
+
+.token-name {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ==========================================
+   AVAILABLE BALANCE
+   ========================================== */
+
+.available-balance {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+    letter-spacing: 0.2px;
+}
+
+/* ==========================================
+   CENTER SWAP BUTTON
+   ========================================== */
+
+.swap-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(10, 10, 15, 0.95) 0%, rgba(5, 5, 10, 0.98) 100%);
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 10;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(255, 255, 255, 0),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.swap-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.swap-button:hover {
+    transform: translate(-50%, -50%) scale(1.15);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        0 12px 48px rgba(0, 0, 0, 0.5),
+        0 0 60px rgba(255, 255, 255, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, rgba(20, 20, 25, 0.98) 0%, rgba(10, 10, 15, 0.99) 100%);
+}
+
+.swap-button:active {
+    transform: translate(-50%, -50%) scale(1.08);
+}
+
+.swap-button i {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.4s ease;
+}
+
+.swap-button:hover i {
+    transform: rotate(180deg) scale(1.1);
+}
+
+/* ==========================================
+   BOTTOM INFO SECTION
+   ========================================== */
+
+.bottom-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.fee-section {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+}
+
+.fee-label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+}
+
+.fee-amount {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+}
+
+.info-icon {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: help;
+    transition: all 0.3s ease;
+}
+
+.info-icon:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ==========================================
+   SPEED SELECTOR
+   ========================================== */
+
+.speed-selector {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 8px 14px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.speed-selector:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.speed-selector:active {
+    transform: scale(0.96);
+}
+
+.speed-selector i:first-child {
+    font-size: 12px;
+    color: rgba(255, 193, 7, 1);
+}
+
+.speed-selector i:last-child {
+    font-size: 11px;
+    opacity: 0.6;
+    transition: transform 0.3s ease;
+}
+
+.speed-selector:hover i:last-child {
+    transform: rotate(180deg);
+}
+
+.speed-text {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* ==========================================
+   ANIMATIONS & EFFECTS
+   ========================================== */
+
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+@keyframes floatIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.swap-widget {
+    animation: floatIn 0.6s ease-out;
+}
+
+.swap-card {
+    animation: floatIn 0.6s ease-out;
+}
+
+.swap-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.swap-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+@media (max-width: 480px) {
+    .swap-card {
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .large-amount {
+        font-size: 32px;
+    }
+
+    .swap-from {
+        margin-bottom: 50px;
+    }
+
+    .swap-button {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+    }
+
+    .token-selector {
+        padding: 9px 12px;
+        font-size: 13px;
+    }
+
+    .speed-selector {
+        padding: 7px 12px;
+        font-size: 11px;
+    }
+
+    .card-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .token-selector {
+        align-self: flex-end;
+    }
+}
+
+@media (max-width: 360px) {
+    .swap-widget {
+        max-width: 100%;
+    }
+
+    .large-amount {
+        font-size: 28px;
+    }
+
+    .swap-card {
+        padding: 16px;
+    }
+}
+
+/* ==========================================
+   DARK MODE ENHANCEMENTS
+   ========================================== */
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #000000;
+    }
+}
+
+/* ==========================================
+   FOCUS & ACCESSIBILITY
+   ========================================== */
+
+button:focus-visible {
+    outline: 2px solid rgba(59, 130, 246, 0.5);
+    outline-offset: 2px;
+}
+
+/* ==========================================
+   SCROLL BAR (Optional refinement)
+   ========================================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}

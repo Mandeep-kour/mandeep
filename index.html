@@ -1,1 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Swap Widget - Premium Web3 UI</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- SVG Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="swap-widget">
+            <!-- Top Card: Swap From -->
+            <div class="swap-card swap-from">
+                <div class="card-header">
+                    <span class="label">Swap from</span>
+                    <button class="max-btn" id="maxBtn">MAX</button>
+                </div>
+                
+                <div class="card-content">
+                    <div class="amount-section">
+                        <div class="large-amount" id="fromAmount">0.1705</div>
+                        <div class="usd-value">~$9,384.32</div>
+                    </div>
+                    
+                    <button class="token-selector" id="fromTokenSelector">
+                        <span class="token-icon btc-icon">
+                            <i class="fab fa-bitcoin"></i>
+                        </span>
+                        <span class="token-name">BTC</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                
+                <div class="available-balance">79.7053 BTC available</div>
+            </div>
 
+            <!-- Center Swap Button -->
+            <button class="swap-button" id="swapBtn" title="Swap tokens">
+                <i class="fas fa-arrow-right-arrow-left"></i>
+            </button>
+
+            <!-- Bottom Card: Swap To -->
+            <div class="swap-card swap-to">
+                <div class="card-header">
+                    <span class="label">To</span>
+                </div>
+                
+                <div class="card-content">
+                    <div class="amount-section">
+                        <div class="large-amount" id="toAmount">3.84</div>
+                    </div>
+                    
+                    <button class="token-selector" id="toTokenSelector">
+                        <span class="token-icon eth-icon">
+                            <i class="fab fa-ethereum"></i>
+                        </span>
+                        <span class="token-name">ETH</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+                
+                <div class="bottom-info">
+                    <div class="fee-section">
+                        <span class="fee-label">Estimated Fee:</span>
+                        <span class="fee-amount">$3.78</span>
+                        <i class="fas fa-circle-info info-icon"></i>
+                    </div>
+                    
+                    <button class="speed-selector" id="speedSelector">
+                        <i class="fas fa-bolt"></i>
+                        <span class="speed-text">Fast</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js.js"></script>
+</body>
+</html>
